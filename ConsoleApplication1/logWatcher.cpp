@@ -20,8 +20,8 @@ LogWatcher::LogWatcher(const std::string& filePath, const std::vector<std::strin
 
 void LogWatcher::startMonitoring() {
     log(INFO) << "Watching file: " << filePath << endl;
-
     while (true) {
+        system("wevtutil qe System /f:text /c:50 >> C:\\Logs\\eventlog_dump.txt");
         checkNewLines();
         std::this_thread::sleep_for(std::chrono::seconds(2));
     }
