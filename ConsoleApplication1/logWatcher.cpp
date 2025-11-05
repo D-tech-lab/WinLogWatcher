@@ -5,7 +5,9 @@
 #include <thread>
 #include "logWatcher.h"
 #include "logger.h"
+#include<string>
 #include <thread>
+#include <cstdlib>
 #include <chrono>
 #include <fstream>
 #include <regex>
@@ -20,8 +22,13 @@ LogWatcher::LogWatcher(const std::string& filePath, const std::vector<std::strin
 
 void LogWatcher::startMonitoring() {
     log(INFO) << "Watching file: " << filePath << endl;
+    time_t now = time(nullptr);
+    std::string timestamp = std::to_string(now);
     while (true) {
-        system("wevtutil qe System /f:text /c:50 >> C:\\Logs\\eventlog_dump.txt");
+
+        // Build full command
+        std::string command = "wevtutil qe System /f:text /c:50 >> C:\\Logs\\eventlog_dump_" + timestamp + ".txt";
+        system(command.c_str());
         checkNewLines();
         std::this_thread::sleep_for(std::chrono::seconds(2));
     }

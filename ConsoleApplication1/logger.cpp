@@ -70,7 +70,7 @@ Logger::Logger() {
                 << fileName.str() << std::endl;
         }
         else {
-            std::cout << "[Logger INFO] Logging to file: " << fileName.str() << std::endl;
+            //std::cout << "[Logger INFO] Logging to file: " << fileName.str() << std::endl;
         }
     }
     catch (const std::exception& e) {
@@ -128,5 +128,5 @@ void Logger::write(LogLevel level,
         logFile_.flush();
     }
 
-    std::cout << out << std::endl;
+    //std::cout << out << std::endl;
 }
