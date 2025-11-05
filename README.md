@@ -11,4 +11,4 @@ A lightweight Windows log monitoring tool that watches real-time log updates and
 Run the application and it will automatically detect changes in the specified log file.
 
 ## Author
-Gaurav (D-tech-lab)
+Aayush Daghottra (D-tech-lab)
